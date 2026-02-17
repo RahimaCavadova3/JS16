@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS16</title>
+    <style>
+      body {
+        background-color: blanchedalmond;
+      }
+      h1,
+      h2 {
+        text-align: center;
+        color: brown;
+      }
+      .car-details {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid white;
+        border-radius: 15px;
+        background-color: white;
+        box-shadow: 1px 3px 10px #333;
+      }
+      button {
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 2px 3px 5px #333;
+        background-color: cadetblue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Task 1</h1>
+    <h2>Student Class</h2>
+    <ul id="list"></ul>
+    <hr />
+    <h1>Task 2</h1>
+    <div class="car-details">
+      <h2>Car Details</h2>
+      <button onclick="goster()">Məlumatları göstər</button>
+      <p id="msj"></p>
+    </div>
+
+    <script>
+      // Task 1 JS
+      let list = document.getElementById("list");
+      class Student {
+        constructor(ad, yaş, kurs) {
+          this.ad = ad;
+          this.yaş = yaş;
+          this.kurs = kurs;
+        }
+        showStudent() {
+          return `${this.ad} (${this.yaş} yaş) - Kurs : ${this.kurs}`;
+        }
+      }
+
+      let allStudent = [
+        new Student("Rahimə", "19", "İnformasiya texnologiyaları"),
+        new Student("Səma", "20", "İnformasiya texnologiyaları"),
+        new Student("Cəvahir", "19", "İnformasiya texnologiyaları"),
+        new Student("Nəzrin", "20", "İnformasiya texnologiyaları"),
+      ];
+
+      for (let i = 0; i < allStudent.length; i++) {
+        list.innerHTML += `<li>${allStudent[i].showStudent()}</li>`;
+      }
+
+      // Task 2 JS
+
+      let msj = document.getElementById("msj");
+      class Car {
+        constructor(model, qiymət) {
+          this.model = model;
+          this.qiymət = qiymət;
+        }
+        showCar() {
+          return `Model: ${this.model}, Qiymət: ${this.qiymət}`;
+        }
+      }
+
+      let allCar = [new Car("BMW X5", "80000 AZN")];
+
+      function goster() {
+        for (let i = 0; i < allCar.length; i++) {
+          msj.innerHTML += `<li>${allCar[i].showCar()}</li>`;
+        }
+      }
+    </script>
+  </body>
+</html>
